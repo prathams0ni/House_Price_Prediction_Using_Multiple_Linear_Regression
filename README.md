@@ -1,78 +1,87 @@
-# House Price Prediction - Linear Regression
+# House Price Prediction Using Multiple Linear Regression
 
-This project demonstrates the implementation of **Linear Regression** to predict house prices based on various property features. The notebook contains two separate implementations using data from different file formats (Excel and CSV) to showcase data handling versatility.
+## 📌 Project Overview
+This project implements **Multiple Linear Regression** to predict house prices based on numerical property and neighborhood characteristics. The goal is to understand how various factors influence property value and evaluate model performance using standard regression metrics.
 
-## 📁 Project Structure:
+---
 
-- **File**: `Linear_Regression.ipynb`
-- **Data Sources**:
-  - `Houses.xlsx` - Excel format housing data
-  - `linear_regression_numeric.csv` - CSV format housing data
+## 🎯 Problem Statement
+Given a dataset of residential properties with numerical features, the objective is to:
+- Predict house prices accurately
+- Identify the most influential factors affecting property value
+- Evaluate model performance using regression metrics
 
-## 🏠 Dataset Description:
+---
 
-The dataset contains 200 records with the following features:
+## 📂 Dataset Details
+- **File Name:** `Houses.xlsx` / `linear_regression_numeric.csv`
+- **Target Variable:** `price` (in $1000s)
 
-| Feature | Description | Data Type |
-|---------|-------------|-----------|
-| `area_sqft` | Total area of the house in square feet | Integer |
-| `bedrooms` | Number of bedrooms | Integer |
-| `bathrooms` | Number of bathrooms | Integer |
-| `age_years` | Age of the property in years | Integer |
-| `distance_city_center_km` | Distance from city center in kilometers | Float |
-| `num_schools_nearby` | Number of schools in the vicinity | Integer |
-| `crime_rate_index` | Crime rate index of the area | Float |
-| `price` | Target variable - House price | Float |
+### Features:
+- `area_sqft` – Total built-up area
+- `bedrooms` – Number of bedrooms
+- `bathrooms` – Number of bathrooms
+- `age_years` – Age of the house
+- `distance_city_center_km` – Distance from city center
+- `num_schools_nearby` – Schools within 3 km
+- `crime_rate_index` – Crime severity index
 
-## 🛠️ Implementation Details:
+---
 
-### Data Preprocessing
-- ✅ No missing values detected in either dataset
-- ✅ Data types appropriately assigned
-- ✅ Statistical analysis performed using `describe()`
+## 🛠️ Tech Stack
+- **Language:** Python
+- **Libraries:**
+  - pandas
+  - numpy
+  - matplotlib / seaborn
+  - scikit-learn
+- **Environment:** Jupyter Notebook
 
-### Model Training
-- **Algorithm**: Linear Regression from `sklearn.linear_model`
-- **Train-Test Split**: 80-20 split using `train_test_split`
-- **Random State**: 42 for reproducible results
+---
 
-### Model Performance
+## 🔍 Methodology
 
-Both implementations (Excel and CSV) achieved identical performance metrics:
+### 1. Data Loading & Cleaning
+- Imported numerical dataset
+- Checked for missing values and data consistency
 
-| Metric | Value | Interpretation |
-|--------|-------|----------------|
-| **R² Score** | 0.9564 | Excellent fit (95.64% variance explained) |
-| **MAE** | 21.90 | Mean Absolute Error in price units |
-| **RMSE** | 25.84 | Root Mean Square Error in price units |
+### 2. Exploratory Data Analysis
+- Analyzed feature distributions
+- Studied correlations between features and house price
 
-### Feature Coefficients
+### 3. Model Building
+- Implemented **Multiple Linear Regression**
+- Split data into training and testing sets
+- Trained regression model on training data
 
-The linear regression model identified the following relationships:
+### 4. Model Evaluation
+- **R² Score:** Measures variance explained by the model
+- **MAE:** Average absolute prediction error
+- **RMSE:** Penalizes larger prediction errors
 
-| Feature | Coefficient | Impact on Price |
-|---------|-------------|-----------------|
-| `area_sqft` | +0.119 | Positive but small effect |
-| `bedrooms` | +13.97 | Strong positive effect |
-| `bathrooms` | +13.04 | Strong positive effect |
-| `age_years` | -1.85 | Negative effect (depreciation) |
-| `distance_city_center_km` | -8.18 | Strong negative effect |
-| `num_schools_nearby` | +5.46 | Positive effect |
-| `crime_rate_index` | -10.92 | Strong negative effect |
+### 5. Model Interpretation
+- Analyzed regression coefficients
+- Identified positive and negative price drivers
 
-## 📊 Key Insights:
+---
 
-1. **Location Matters**: Distance from city center and crime rate have significant negative impacts on house prices
-2. **Property Features**: Bedrooms and bathrooms contribute positively to property value
-3. **Age Factor**: Older properties tend to have lower values
-4. **Amenities**: Proximity to schools increases property value
+## 📊 Key Results & Insights
+- Model explains ~95% of price variance
+- Area, bedrooms, bathrooms strongly increase price
+- Distance from city center and crime rate reduce price
+- Model shows strong generalization on test data
 
-## 🚀 How to Run:
+---
 
+## 📈 Final Conclusion
+The Multiple Linear Regression model provides accurate and interpretable house price predictions. It highlights key real-estate drivers and serves as a solid foundation for predictive analytics in property valuation.
+
+---
+
+## 🚀 How to Run
 1. Clone the repository
-2. Ensure you have the required libraries:
-   ```bash
-   pip install pandas scikit-learn numpy
+2. Open the notebook in Jupyter
+3. Install required libraries
+4. Run all cells sequentially
 
-## Final Output:
-<img width="931" height="512" alt="image" src="https://github.com/user-attachments/assets/e13c4ea5-6f45-4377-acc8-695aedb7d7b9" />
+---
